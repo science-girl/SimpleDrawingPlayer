@@ -7,7 +7,7 @@ import java.awt.*;
 
 
 public abstract class Shape {
-    protected static Color PLAYING_COLOR;
+    protected Color PLAYING_COLOR;
 
     protected int x;
     protected int y;
