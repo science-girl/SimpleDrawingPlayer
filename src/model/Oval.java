@@ -10,7 +10,7 @@ public class Oval extends Shape {
         super((int) topLeft.getX(), (int) topLeft.getY(), 0, 0); //note to students: calls the other constructor!
         selected = false;
         this.midiSynth = midiSynth;
-        instrument = 0;
+        instrument = 50;
         playLineCoord = 0;
         PLAYING_COLOR = new Color(155, 250, 60);
     }
