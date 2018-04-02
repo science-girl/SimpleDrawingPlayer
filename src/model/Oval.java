@@ -7,17 +7,24 @@ import java.awt.*;
 public class Oval extends Shape {
 
     public Oval(Point topLeft, MidiSynth midiSynth) {
-        super(topLeft, midiSynth);
+        super((int) topLeft.getX(), (int) topLeft.getY(), 0, 0); //note to students: calls the other constructor!
+        selected = false;
+        this.midiSynth = midiSynth;
+        instrument = 0;
+        playLineCoord = 0;
+        PLAYING_COLOR = new Color(155, 250, 60);
     }
 
     //EFFECTS: draws the shape
     protected void drawGraphics(Graphics g) {
         g.drawOval(x, y, width, height);
+
     }
 
     //EFFECTS: fills the shape
     protected void fillGraphics(Graphics g) {
         g.fillOval(x, y, width, height);
+
     }
 
     // EFFECTS: return true if the given Point (x,y) is contained within the bounds of this Shape

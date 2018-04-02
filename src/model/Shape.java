@@ -7,28 +7,27 @@ import java.awt.*;
 
 
 public abstract class Shape {
-    private static Color PLAYING_COLOR;
+    protected static Color PLAYING_COLOR;
 
     protected int x;
     protected int y;
     protected int width;
 
     protected int height;
-    private boolean selected;
+    protected boolean selected;
 
-    private MidiSynth midiSynth;
-    private int instrument;
-    private int playLineCoord;
+    protected MidiSynth midiSynth;
+    protected int instrument;
+    protected int playLineCoord;
 
 
-    public Shape(Point topLeft, MidiSynth midiSynth) {
-        this((int) topLeft.getX(), (int) topLeft.getY(), 0, 0); //note to students: calls the other constructor!
-        selected = false;
-        this.midiSynth = midiSynth;
-        instrument = 0;
-        playLineCoord = 0;
-        PLAYING_COLOR = new Color(230, 158, 60);
-    }
+//    public Shape(Point topLeft, MidiSynth midiSynth) {
+//        this((int) topLeft.getX(), (int) topLeft.getY(), 0, 0); //note to students: calls the other constructor!
+//        selected = false;
+//        this.midiSynth = midiSynth;
+//        instrument = 0;
+//        playLineCoord = 0;
+//    }
 
 
     public Shape(int x, int y, int w, int h) {
@@ -125,17 +124,10 @@ public abstract class Shape {
 
     //EFFECTS: draws the shape
     abstract void drawGraphics(Graphics g);
-//    private void drawGraphics(Graphics g) {
-//        g.drawRect(x, y, width, height);
-//    }
-//
+
     //EFFECTS: fills the shape
     abstract void fillGraphics(Graphics g);
-//    private void fillGraphics(Graphics g) {
-//        g.fillRect(x, y, width, height);
-//    }
-//
-//
+
     // EFFECTS: starts playing this Shape, where sound is dependent on the area/coordinates of the Shape
     private void play(){
         int volume = areaToVelocity(width * height);

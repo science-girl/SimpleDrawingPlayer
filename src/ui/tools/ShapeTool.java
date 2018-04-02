@@ -62,18 +62,9 @@ public abstract class ShapeTool extends Tool {
 
 	//EFFECTS: Returns the string for the label.
     abstract String getLabel();
-//	private String getLabel() {
-//		return "Shape";
-//	}
 
 	//EFFECTS: Constructs and returns the new shape
 	abstract void makeShape(MouseEvent e);
-
-//    private void makeRectangle(MouseEvent e) {
-//
-//        System.out.println("rectangle");
-//        shape = new Rectangle(e.getPoint(), editor.getMidiSynth());
-//    }
 
 	private class ShapeToolClickHandler implements ActionListener {
 
