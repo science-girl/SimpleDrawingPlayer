@@ -6,14 +6,14 @@ import sound.MidiSynth;
 import java.awt.*;
 
 
-public class Shape {
+public abstract class Shape {
     private static Color PLAYING_COLOR;
 
-    private int x;
-    private int y;
-    private int width;
-    private int height;
+    protected int x;
+    protected int y;
+    protected int width;
 
+    protected int height;
     private boolean selected;
 
     private MidiSynth midiSynth;
@@ -57,12 +57,7 @@ public class Shape {
     }
 
     // EFFECTS: return true if the given Point (x,y) is contained within the bounds of this Shape
-    public boolean contains(Point point) {
-        int point_x = point.x;
-        int point_y = point.y;
-
-        return containsX(point_x) && containsY(point_y);
-    }
+   abstract boolean contains(Point point);
 
     // REQUIRES: the x,y coordinates of the Point are larger than the x,y coordinates of the shape
     // MODIFIES: this
@@ -129,16 +124,18 @@ public class Shape {
     }
 
     //EFFECTS: draws the shape
-    private void drawGraphics(Graphics g) {
-        g.drawRect(x, y, width, height);
-    }
-
+    abstract void drawGraphics(Graphics g);
+//    private void drawGraphics(Graphics g) {
+//        g.drawRect(x, y, width, height);
+//    }
+//
     //EFFECTS: fills the shape
-    private void fillGraphics(Graphics g) {
-        g.fillRect(x, y, width, height);
-    }
-
-
+    abstract void fillGraphics(Graphics g);
+//    private void fillGraphics(Graphics g) {
+//        g.fillRect(x, y, width, height);
+//    }
+//
+//
     // EFFECTS: starts playing this Shape, where sound is dependent on the area/coordinates of the Shape
     private void play(){
         int volume = areaToVelocity(width * height);
